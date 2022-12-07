@@ -13,11 +13,13 @@ func main() {
     let line = inputString.components(separatedBy: "\n")
         .filter { !$0.isEmpty }.first!
 
+    let distinctCharactersNeeded = 14 // 4 for part 1
+    
     var buffer = [Character]()
     var currentIndex = 1
     for char in line {
         buffer.append(char)
-        if buffer.count > 4 {
+        if buffer.count > distinctCharactersNeeded {
             buffer.removeFirst()
             if buffer.count == Set(buffer).count {
                 print(currentIndex)
